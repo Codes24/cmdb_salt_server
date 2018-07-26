@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>主页</title>
+</head>
+<body>
+
+    <table border="1">
+        {% for item in data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.cpu_module }}</td>
+                <td>{{ item.cpu_cores }}</td>
+                <td>{{ item.cpu_physical }}</td>
+                <td>{{ item.cpu_processor }}</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

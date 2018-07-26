@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from web_models import models
-from web_api.views import test,receive_server_info,
+from web_api.views import test,receive_server_info
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -49,5 +49,4 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^test/',test),
     url(r'^receive_server_info/',receive_server_info),
-    url(r'^a/',)
 ]

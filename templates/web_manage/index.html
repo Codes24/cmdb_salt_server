@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>CMDB主页</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+    <script src="../../static/js/jquery-1.12.4.min.js"></script>
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/js/docs.min.js"></script>
+    <script src="../../static/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrapValidator.min.css">
+    <style>
+        .glyphicon-apple{
+            margin-right: 15px;
+        }
+        .caidan_juzhong{
+            padding-left: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">
+                    <span class="glyphicon glyphicon glyphicon-apple bg-primary"></span>CMDB
+                </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div id="mynavbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="padding-left: 50px" id="sc">
+                    <li class="active"><a href="">资产信息</a></li>
+                    <li><a href="">监控信息</a></li>
+                    <li><a href="">批量操作</a></li>
+                    <li><a href="">业务巡检</a></li>
+                    <li><a href="">运维页面</a></li>
+                    <li><a href="">故障报告</a></li>
+                    <li><a href="">升级统计</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">登陆信息</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span>配置选项</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">用户配置</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-group" id="accordion_asset">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_1">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_1">资产总合</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p><a href="" target="a">物理设备</a></p>
+                                <p><a href="" target="b">虚拟设备</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_2">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_2">物理设备</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">网络设备信息</a></p>
+                                <p><a href="">服务器设备信息</a></p>
+                                <p><a href="">按业务分的设备信息</a></p>
+                                <p><a href="">按机房分的设备信息</a></p>
+                                <p><a href="">按用途分的设备信息</a></p>
+                                <p><a href="">按状态分的设备信息</a></p>
+                                <p><a href="">按网络分的设备信息</a></p>
+                                <p><a href="">按系统分的设备信息</a></p>
+                                <p><a href="">按型号分的设备信息</a></p>
+                                <p><a href="">带宽限制的设备信息</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_3">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_3">虚拟设备</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">服务器设备信息</a></p>
+                                <p><a href="">按业务分的设备信息</a></p>
+                                <p><a href="">按地域分的设备信息</a></p>
+                                <p><a href="">按云商分的设备信息</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_4">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_4">IP资源</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">IP资源信息</a></p>
+                                <p><a href="">按机房的IP资源信息</a></p>
+                                <p><a href="">剩余的IP资源信息</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_5">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_5">域名资源</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">域名资源信息</a></p>
+                                <p><a href="">域名备案有效期</a></p>
+                                <p><a href="">域名Https证书有效期</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_6">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_6">设备维修记录</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">硬件配件更换记录</a></p>
+                                <p><a href="">服务器报废记录</a></p>
+                                <p><a href="">服务器变更记录</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-group" id="accordion_monitor">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="monitor_1">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_monitor" href="#monitor_collapse_1">监控信息</a>
+                            </div>
+                        </div>
+                        <div id="monitor_collapse_1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p><a href="">啊啊啊</a></p>
+                                <p><a href="">啊啊啊</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div>
+                    <iframe id="a" name="a" src="asset/asset_1/physical_device_count.html" style="overflow: visible" scrolling="yes" frameborder="no" width="100%" height="100% float:left"></iframe>
+                    <iframe id="b" name="b" src="asset/asset_1/virtual_device_count.html" style="overflow: visible" scrolling="yes" frameborder="no" width="100%" height="100% float:left"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('#sc > li').mouseenter(function () {
+        $(this).addClass('active');
+        $('li').not($(this)).removeClass('active');
+
+        idx=$(this).index('li');
+        $('.panel-group').eq(idx).show();
+        $('.panel-group').not($('.panel-group').eq(idx)).hide();
+    });
+</script>
+</html>

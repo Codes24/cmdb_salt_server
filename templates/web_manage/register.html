@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+    <script src="../../static/js/jquery-1.12.4.min.js"></script>
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/js/docs.min.js"></script>
+    <script src="../../static/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrapValidator.min.css">
+    <style>
+        .glyphicon-apple{
+            margin-right: 15px;
+        }
+        .wenzi{
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header"><span class="glyphicon glyphicon glyphicon-apple bg-primary"></span>CMDB注册页面</h1>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <form action="/web/register/" method="post">
+                <div class="form-group has-success">
+                    <label class="text-info wenzi">用户名:</label>
+                    {{ data.username }}
+                    <span class="text-danger">{{ errordata.username.0 }}</span>
+                    <span class="text-danger">{{ username }}</span>
+                </div>
+                <div class="form-group has-success">
+                    <label class="text-info wenzi">密码:</label>
+                    {{ data.password }}
+                    <span class="text-danger">{{ errordata.password.0 }}</span>
+                </div>
+                 <div class="form-group has-success">
+                     <label class="text-info wenzi">再次确认密码:</label>
+                     {{ data.re_password }}
+                     <span class="text-danger" >{{ errordata.re_password.0 }}</span>
+                </div>
+                <div class="form-group has-success">
+                    <label class="text-info wenzi">Email:</label>
+                    {{ data.email }}
+                    <span class="text-danger">{{ errordata.email.0 }}</span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="OK" class="btn btn-primary">
+                    <input type="reset" value="Cancel" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</body>
+</html>

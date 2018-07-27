@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+    <script src="../../static/js/jquery-1.12.4.min.js"></script>
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/js/docs.min.js"></script>
+    <script src="../../static/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrapValidator.min.css">
+</head>
+<body>
+    <input id="name" type="text">
+    <input type="button" value="提交" onclick="AjaxDo();">
+</body>
+<script>
+    function AjaxDo() {
+        var temp = $('#name').val();
+        $.ajax({
+            url:'/web/ajax/',
+            type:'POST',
+            data:{'dat':temp},
+            success:function (arg) {
+                var obj = jQuery.parseJSON(arg);
+                console.log(obj.msg);
+                console.log(obj.bbb);
+                console.log('success');
+                $('#name').val(obj.msg);
+            },
+            error:function () {
+                console.log('failed')
+            }
+        });
+    };
+</script>
+</html>

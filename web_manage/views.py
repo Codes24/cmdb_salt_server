@@ -71,3 +71,15 @@ def login(request):
         else:
             errorForm = checkForm.errors
     return render(request, "web_manage/login.html", {"data": obj, "errordata": checkForm.errors})
+
+def ajax(request):
+
+    if request.method == 'POST':
+
+        print request.POST
+        data={'msg':'a','bbb':'b'}
+        return HttpResponse(json.dumps(data))
+
+    else:
+
+        return render(request, 'web_manage/ajax.html')

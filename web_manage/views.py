@@ -72,6 +72,7 @@ def login(request):
             errorForm = checkForm.errors
     return render(request, "web_manage/login.html", {"data": obj, "errordata": checkForm.errors})
 
+#ajax测试
 def ajax(request):
 
     if request.method == 'POST':
@@ -83,3 +84,10 @@ def ajax(request):
     else:
 
         return render(request, 'web_manage/ajax.html')
+
+#物理设备资源汇总
+def physical_device_count(request):
+
+    user = models.User.objects.all().values('id','username','password')
+
+    return render_to_response('web_manage/asset/asset_1/physical_device_count.html',{'data':1})

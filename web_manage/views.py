@@ -9,6 +9,11 @@ from web_manage import forms
 import hashlib
 import json
 # Create your views here.
+#主页
+def index(request):
+
+    return render_to_response('web_manage/index.html')
+
 #用户注册
 def register(request):
 
@@ -89,5 +94,17 @@ def ajax(request):
 def physical_device_count(request):
 
     user = models.User.objects.all().values('id','username','password')
+    user_count = models.User.objects.filter(id__gt='10').count()
 
-    return render_to_response('web_manage/asset/asset_1/physical_device_count.html',{'data':1})
+    return render_to_response('web_manage/asset/asset_1/physical_device_count.html',{'data':user_count})
+
+#虚拟设备资源汇总
+#def virtual_device_count(request):
+
+#网络设备信息
+#def network_device_info(request):
+
+#虚拟设备信息
+def server_device_info(request):
+
+    return HttpResponse('ok')

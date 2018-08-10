@@ -11,16 +11,18 @@
     <link rel="stylesheet" href="../../../../static/css/bootstrapValidator.min.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <table class="table table-bordered table-hover">
             <tr>
-                <th>id</th>
-                <th>username</th>
-                <th>password</th>
+                <th class="info"><p class="text-center" style="font-weight: bold">物理设备总数</p></th>
+                <th class="info"><p class="text-center" style="font-weight: bold">网络设备总数</p></th>
+                <th class="info"><p class="text-center" style="font-weight: bold">服务器设备总数</p></th>
+                <th class="info"><p class="text-center" style="font-weight: bold">虚拟服务器设备总数</p></th>
+                <th class="info"><p class="text-center" style="font-weight: bold">空余设备总数</p></th>
             </tr>
-            <tr>
-                <td>{{ data }}</td>
-            </tr>
+                 <tr>
+                    <td><span><p class="text-center" style="font-weight: bolder">{{ data }}</p></span></td>
+                </tr>
         </table>
     </div>
 </body>

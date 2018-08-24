@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>增加服务器</title>
+    <link rel="stylesheet" href="../../../../static/bootstrap/css/bootstrap.min.css">
+    <script src="../../../../static/js/jquery-1.12.4.min.js"></script>
+    <script src="../../../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../../static/js/docs.min.js"></script>
+    <script src="../../../../static/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../../../../static/css/bootstrapValidator.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="center-block">
+            <form action="/web/server_add/" method="post">
+                <b>主机名:</b>
+                <input name="hostname" type="text">
+                <p></p>
+                <b>设备类型:</b>
+                <select id="devicetype_select" name="devicetype_s">
+                    <option value="0">--请选择--</option>
+                </select>
+                <p></p>
+                <input type="submit" value="提交">
+                <input type="reset" valeu="重置">
+                <!--<div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="devicetype_button" data-toggle="dropdown">设备类型<span class="caret"></span></button>
+                    <ul class="dropdown-menu" id="devicetype_ul"></ul>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    /*$('#devicetype_button').bind('click',function () {
+        $.ajax({
+            url:'/web/show_devicetype/',
+            type:'GET',
+            success:function(arg){
+                var obj = jQuery.parseJSON(arg);
+                console.log(obj);
+                $.each($.parseJSON(arg),function(index,names){
+                    $('#devicetype_ul').append("<li><a href='#'>" + names.name + "</a></li>");
+                });
+            },
+            error:function () {
+                console.log('failed');
+            }
+        });
+    });*/
+    $.ajax({
+        url:'/web/show_devicetype/',
+        type:'GET',
+        success:function (data) {
+            $('#devicetype_select').empty();
+            $('#devicetype_select').append("<option>--请选择--</option>");
+            $.each($.parseJSON(data),function (k,v) {
+                $("#devicetype_select").append("<option value='"+v.id+"'>"+v.name+"</option>");
+            });
+        },
+        error:function () {
+            console.log('failed');
+        },
+    });
+    /*$('#devicetype_select').change(function () {
+        var item = $('#devicetype_select').val();
+        console.log(item)
+         $("select option[value='"+item+"']").attr("selected", "selected");
+    });*/
+</script>
+</html>

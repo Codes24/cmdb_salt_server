@@ -5,10 +5,25 @@ from django.shortcuts import render,render_to_response,redirect
 from django.http.response import HttpResponse
 from web_models import models
 from django.db import connection
+from django.core import serializers
 from web_manage import forms
 import hashlib
 import json
+import urllib
 # Create your views here.
+#ajax测试
+def ajax(request):
+
+    if request.method == 'POST':
+
+        print request.POST
+        data={'msg':'a','bbb':'b'}
+        return HttpResponse(json.dumps(data))
+
+    else:
+
+        return render(request, 'web_manage/../templates/backup/ajax.html')
+
 #主页
 def index(request):
 
@@ -77,19 +92,6 @@ def login(request):
             errorForm = checkForm.errors
     return render(request, "web_manage/login.html", {"data": obj, "errordata": checkForm.errors})
 
-#ajax测试
-def ajax(request):
-
-    if request.method == 'POST':
-
-        print request.POST
-        data={'msg':'a','bbb':'b'}
-        return HttpResponse(json.dumps(data))
-
-    else:
-
-        return render(request, 'web_manage/ajax.html')
-
 #物理设备资源汇总
 def physical_device_count(request):
 
@@ -107,4 +109,49 @@ def physical_device_count(request):
 #虚拟设备信息
 def server_device_info(request):
 
-    return HttpResponse('ok')
+    return render_to_response('web_manage/asset/asset_2/server_device_info.html')
+
+#添加设备信息
+def server_add(request):
+
+    if request.method == 'GET':
+        return render_to_response('web_manage/asset/asset_2/server_add.html')
+
+    if request.method == 'POST':
+        hostname_data = request.POST.get('hostname')
+        hostname_devicetype = request.POST.get('devicetype_s')
+        hostname_obj = models.Asset.objects.filter(hostname=hostname_data)
+        if hostname_obj.exists():
+            print 'ok'
+        else:
+            asset_table = models.Asset()
+            asset_table.hostname = hostname_data
+            asset_table.device_type_id = hostname_devicetype
+            asset_table.save()
+            asset_id = models.Server.objects.create(asset_id=models.Asset.objects.get(hostname=hostname_data).id)
+            server_id_asset_id = models.Server.objects.filter(asset_id=models.Asset.objects.get(hostname=hostname_data))
+            asset_id_s = serializers.serialize("json",server_id_asset_id)
+            asset_id_json = json.loads(asset_id_s)
+            asset_id_json_list = asset_id_json[0]
+            asset_id_json_id = str(asset_id_json_list['pk']).decode()
+            print type(asset_id_json)
+            print asset_id_json_list
+            print asset_id_json_id
+            print type(asset_id_json_id)
+            server_id = models.Cpu.objects.create(server_info_id=asset_id_json_id)
+        return HttpResponse('ok')
+#查询设备类型信息
+def show_devicetype(request):
+
+    if request.method == 'GET':
+
+        devicetype_list = []
+        devicetype_all = models.DeviceType.objects.all()
+
+        for item in devicetype_all:
+            devicetype_dict = {}
+            devicetype_dict['id'] = item.id
+            devicetype_dict['name'] = item.name
+            devicetype_list.append(devicetype_dict)
+
+        return HttpResponse(json.dumps(devicetype_list))

@@ -57,6 +57,15 @@
 
         <div class="row">
             <div class="col-md-2">
+                <form class="form-group" action="asset/asset_1/physical_device_count.html" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">GO!</button>
+                        </span>
+                    </div>
+                </form>
+
                 <div class="panel-group" id="accordion_asset">
                     <div class="panel panel-primary">
                         <div class="panel-heading" id="asset_1">
@@ -83,16 +92,18 @@
                         <div id="asset_collapse_2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="list-unstyled">
-                                    <li id="li-three"><a href="javascript:void(0);">网络设备信息</a></li>
-                                    <li id="li-four"><a href="javascript:void(0);">服务器设备信息</a></li>
-                                    <li id="li-five"><a href="javascript:void(0);">按业务分的设备信息</a></li>
-                                    <li id="li-six"><a href="javascript:void(0);">按机房分的设备信息</a></li>
-                                    <li id="li-seven"><a href="javascript:void(0);">按用途分的设备信息</a></li>
-                                    <li id="li-eight"><a href="javascript:void(0);">按状态分的设备信息</a></li>
-                                    <li id="li-nine"><a href="javascript:void(0);">按网络分的设备信息</a></li>
-                                    <li id="li-ten"><a href="javascript:void(0);">按系统分的设备信息</a></li>
-                                    <li id="li-eleven"><a href="javascript:void(0);">按型号分的设备信息</a></li>
-                                    <li id="li-twelve"><a href="javascript:void(0);">带宽限制的设备信息</a></li>
+                                    <li id="li-three"><a href="javascript:void(0);">网络设备</a></li>
+                                    <li id="li-four"><a href="javascript:void(0);">服务器设备</a></li>
+                                    <li id="li-five"><a href="javascript:void(0);">按型号分的设备</a></li>
+                                    <li id="li-six"><a href="javascript:void(0);">按状态分的设备</a></li>
+                                    <li id="li-seven"><a href="javascript:void(0);">按属性分的设备</a></li>
+                                    <li id="li-eight"><a href="javascript:void(0);">按业务分的设备</a></li>
+                                    <li id="li-nine"><a href="javascript:void(0);">按用途分的设备</a></li>
+                                    <li id="li-ten"><a href="javascript:void(0);">按网络类型分的设备</a></li>
+                                    <li id="li-eleven"><a href="javascript:void(0);">按网络线路分的设备</a></li>
+                                    <li id="li-twelve"><a href="javascript:void(0);">按机房分的设备</a></li>
+                                    <li id="li-thirteen"><a href="javascript:void(0);">按系统分的设备</a></li>
+                                    <li id="li-fourteen"><a href="javascript:void(0);">有带宽限制的设备</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -107,10 +118,10 @@
                         <div id="asset_collapse_3" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="list-unstyled">
-                                    <li id="li-thirteen"><a href="javascript:void(0);">服务器设备信息</a></li>
-                                    <li id="li-fourteen"><a href="javascript:void(0);">按业务分的设备信息</a></li>
-                                    <li id="li-fifteen"><a href="javascript:void(0);">按地域分的设备信息</a></li>
-                                    <li id="li-sixteen"><a href="javascript:void(0);">按云商分的设备信息</a></li>
+                                    <li id="li-fifteen"><a href="javascript:void(0);">服务器设备</a></li>
+                                    <li id="li-sixteen"><a href="javascript:void(0);">按业务分的设备</a></li>
+                                    <li id="li-"><a href="javascript:void(0);">按地域分的设备</a></li>
+                                    <li id="li-"><a href="javascript:void(0);">按云运营商分的设备</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -124,9 +135,9 @@
                         </div>
                         <div id="asset_collapse_4" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p><a href="">IP资源信息</a></p>
-                                <p><a href="">按机房的IP资源信息</a></p>
-                                <p><a href="">剩余的IP资源信息</a></p>
+                                <p><a href="">IP资源</a></p>
+                                <p><a href="">按机房分的IP资源</a></p>
+                                <p><a href="">剩余的IP资源</a></p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +150,7 @@
                         </div>
                         <div id="asset_collapse_5" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p><a href="">域名资源信息</a></p>
+                                <p><a href="">域名资源</a></p>
                                 <p><a href="">域名备案有效期</a></p>
                                 <p><a href="">域名Https证书有效期</a></p>
                             </div>
@@ -149,10 +160,25 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading" id="asset_6">
                             <div class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_6">设备维修记录</a>
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_6">合同单</a>
                             </div>
                         </div>
                         <div id="asset_collapse_6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p><a href="">服务器购买合同</a></p>
+                                <p><a href="">虚拟机购买合同</a></p>
+                                <p><a href="">机房带宽调整合同</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="asset_7">
+                            <div class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion_asset" href="#asset_collapse_7">设备维修记录</a>
+                            </div>
+                        </div>
+                        <div id="asset_collapse_7" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <p><a href="">硬件配件更换记录</a></p>
                                 <p><a href="">服务器报废记录</a></p>

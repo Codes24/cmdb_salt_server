@@ -14,18 +14,15 @@ from web_models import models
 def receive_server_info(request):
 
     server_info = request.POST.get('data')
+    #将url编码的字符进行转换
     server_info = urllib.unquote(server_info)
     server_info_dict = json.loads(server_info)
-    print server_info_dict
-    print server_info_dict['cpu']
-    print type(server_info_dict)
-    print type(server_info_dict['cpu'])
     hostname = server_info_dict['hostname']
-    print hostname
     if server_info_dict['modify'] == 0:
         pass
     else:
         asset_id = models.Asset.objects.filter(hostname=hostname)
+        #将查询出来的结果类型由models.class转换为json
         asset_id_s = serializers.serialize("json",asset_id)
         asset_id_json = json.loads(asset_id_s)
         asset_id_json_list = asset_id_json[0]
@@ -37,38 +34,12 @@ def receive_server_info(request):
         server_id_json_dict = str(server_id_json_list['pk']).decode()
         cpu_info_list = models.Cpu.objects.filter(server_info_id=server_id_json_dict)
         for item in cpu_info_list:
-            for new_key,new_value in server_info_dict['cpu'].items():
-                print new_value[0][1]
-                #if item.model != new_value['model']:
-                #print item.model
-                #print new_value[]
-                #else:
-                 #   print 'no'
-                  #  item.model = new_value['model']
-                   # item.save()
-                #print new_key,new_value
-        #models.Server.objects.create(asset_id=asset_id)
-        #old_cpu_list = models.Cpu.objects.filter(server__id=server_id)
-        #print old_cpu_list
-
+            print item.memo
+            for new_key,new_value in server_info_dict.items():
+                if item.memo == new_key:
+                    if item.model != new_value['cpu_module']:
+                        item.model = new_value['cpu_module']
+                        item.save()
+                    else:
+                        print '相等'
     return HttpResponse('123')
-    '''
-    try:
-        method = request.method
-        if method == 'POST':
-            server_info = request.POST.get('data')
-            server_info_dict = json.loads(server_info)
-            print server_info_dict
-    except Exception,e:
-        print e
-    
-    cpu_status = server_info_dict['cpu']['modify']
-    cpu_data = server_info_dict['cpu']['data']
-    print cpu_data
-    if cpu_status == 0:
-        pass
-    else:
-        cpu_models = models.CpuInfo.objects.create(**cpu_data)
-        cpu_models.save()
-    return Response('ok')
-    '''
